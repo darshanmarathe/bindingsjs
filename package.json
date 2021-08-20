@@ -1,0 +1,25 @@
+{
+  "name": "bindingsjs",
+  "version": "1.0.0",
+  "description": "A micro front-end databinding / communication / state management lib.",
+  "main": "bindings.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darshanmarathe/bindingsjs.git"
+  },
+  "keywords": [
+    "micro-frontend",
+    "databinding",
+    "state",
+    "management"
+  ],
+  "author": "Darshan Marathe",
+  "license": "MIT ",
+  "bugs": {
+    "url": "https://github.com/darshanmarathe/bindingsjs/issues"
+  },
+  "homepage": "https://github.com/darshanmarathe/bindingsjs#readme"
+}
