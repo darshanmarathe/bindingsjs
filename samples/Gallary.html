@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallary example</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.5.0/custom-elements.min.js" integrity="sha512-QEq2OoCw4DbyQHVHnjan2wOgKlnPHyUzB/OEpLKXk0OJyifj9a6ulr+tXPdmqx9dhIp9q3D+F9+zHaZE9XBo9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+    <!-- From CDN -->
+<script async type="module" src="https://unpkg.com/@power-elements/lazy-image/lazy-image.js"></script>
+
+
+    <style type="text/css">
+html {
+  --lazy-image-width: 640px;
+  --lazy-image-height: 480px;
+}
+
+lazy-image {
+  width: var(--lazy-image-width);
+  height: var(--lazy-image-height);
+}
+    
+    .thumbnail {
+        max-width:20%;
+        max-height:200px;
+        cursor: pointer;
+    }
+    
+    </style>
+</head>
+<body>
+    
+    <lazy-image id="img" src="image.jpg" alt="Lazy Image">
+    </lazy-image>
+
+
+    <div>
+        <img src="https://i.ytimg.com/vi/gUIJ-UkQsXI/maxresdefault.jpg" alt="kitten" class="thumbnail" />
+        <img src="https://images.unsplash.com/photo-1591871937573-74dbba515c4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80" alt="kitten" class="thumbnail" />
+        <img src="https://i.pinimg.com/originals/7a/af/0f/7aaf0f1d48f57b7779c0fbcf103c2d0f.jpg" alt="kitten" class="thumbnail" />
+        <img src="https://i.pinimg.com/originals/9a/be/5f/9abe5f0ad84b083a1a52dac183c7bc89.jpg" alt="kitten" class="thumbnail" />
+        <img src="https://i.pinimg.com/736x/fa/5c/0a/fa5c0a171020251c2a7ad092542be066.jpg" alt="kitten" class="thumbnail" />
+    </div>
+    <bindings>
+        <binding source=".thumbnail" target="#img" event="click" property="src" sourceproperty="src"></binding>
+    </bindings>
+
+
+    <script src="bindings.js"></script>
+</body>
+</html>
