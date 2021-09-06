@@ -72,6 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (pipe != undefined && pipe.trim() != "") {
                 let func = getFunc(pipe);
+                if(typeof(func) !== "function") {
+                    console.error("function with name " + pipe + "not found.")
+                    return;
+                }
                 func(e, targetElement);
                 return;
             }
