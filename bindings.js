@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return currObj
     }
 
-    function setObject(str, value, rootObject, targetFormat, isObject) {
+    function setObject(str, value, rootObject, targetFormat, isObject, sourceproperty) {
+        debugger;
         let props = str.split('.')
         let currObj = rootObject;
 
@@ -33,10 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
             currObj = currObj[prop]
         });
 
-        debugger;
-        
-        if (isObject)
-        {
+        if (sourceproperty && sourceproperty !== "") {
+            value = value.getAttribute(sourceproperty);
+        }
+
+        if (isObject) {
             currObj[lastProp] = value;
             return;
         }
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currObj[lastProp] = currObj[lastProp] + targetFormat.format(value);
         } else
             currObj[lastProp] = targetFormat.format(value);
-        
+
     }
 
     bindings.forEach(binding => {
@@ -54,36 +56,43 @@ document.addEventListener("DOMContentLoaded", () => {
         const event = binding.getAttribute('event');
         const target = binding.getAttribute('target');
         const property = binding.getAttribute('property');
+        const sourceproperty = binding.getAttribute('sourceproperty');
         const pipe = binding.getAttribute('pipe');
         const targrtFormat = binding.getAttribute('targrtFormat') || "{0}";
         const isObject = binding.hasAttribute('object');
 
-        const elemToBind = document.querySelector(source);
-        const targetElement = document.querySelector(target);
+        const elemToBind = document.querySelectorAll(source);
+        const targetElement = document.querySelectorAll(target);
         if (!(pipe != undefined && pipe.trim() != "")) {
-            if (elemToBind == null || targetElement == null) {
+            if (elemToBind.length === 0 || targetElement.length === 0) {
                 console.error("source element ", elemToBind, " or target element", targetElement, " not found")
                 return;
             }
 
         }
 
-        elemToBind.addEventListener(event, function (e) {
+        elemToBind.forEach((elem) => {
 
-            if (pipe != undefined && pipe.trim() != "") {
-                let func = getFunc(pipe);
-                if(typeof(func) !== "function") {
-                    console.error("function with name " + pipe + "not found.")
+            elem.addEventListener(event, function (e) {
+
+                if (pipe != undefined && pipe.trim() != "") {
+                    let func = getFunc(pipe);
+                    if (typeof (func) !== "function") {
+                        console.error("function with name " + pipe + "not found.")
+                        return;
+                    }
+                    func(e, targetElement);
                     return;
                 }
-                func(e, targetElement);
-                return;
-            }
+                targetElement.forEach((telem) => {
+                    if (sourceproperty && sourceproperty !== "") {
+                        setObject(property, (e.target), telem, targrtFormat, isObject, sourceproperty);
+                    } else {
 
-            setObject(property, (e.detail || e.target.value), targetElement, targrtFormat , isObject);
-        })
-    })
-
-
-
+                        setObject(property, (e.detail || e.target.value || e.target), telem, targrtFormat, isObject, sourceproperty);
+                    }
+                });
+            })
+        });
+    });
 });
