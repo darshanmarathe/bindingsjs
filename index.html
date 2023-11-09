@@ -97,6 +97,14 @@
     </bindings>
     <script>
 
+
+setTimeout(() => {
+    console.log('was here....')
+                document.querySelector('#range').remove();
+                document.querySelector('#selector1').remove();
+                document.querySelector('#myTodos').remove();
+            }, 5000);
+
         fetch('https://jsonplaceholder.typicode.com/users')
             .then((response) => response.json())
             .then((json) => {
@@ -107,6 +115,7 @@
                 document.querySelector('#selector2').selecteditems = [];
 
             });
+
 
 
 // document.querySelector('#pic').addEventListener('onCaptured' , (data) => {
@@ -122,7 +131,7 @@
 
     </script>
 
-    <script src="./samples/bindings.js"></script>
+    <script src="./bindings.js"></script>
 </body>
 
 </html>
