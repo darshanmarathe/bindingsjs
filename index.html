@@ -45,7 +45,7 @@
     <div style="background-repeat: round;" id="rangeOut"></div>
     <ph-todoList id="myTodos" ownerimg=""></ph-todoList>
     <h2>Table</h2>
-    <ph-dyntable id="table" debug="true" data></ph-dyntable>
+    <ph-dyntable class="table" debug="true" data></ph-dyntable>
     <h2>Posts</h2>
     <ph-dyntable id="posts" data debug="true"></ph-dyntable>
 
@@ -68,6 +68,9 @@
 
     <input type="text" id="sourceIn">
     <span id="targeOut"></span>
+    <div id="target">
+Table to come here....
+    </div>
     <script type="module" src="./samples/wcforge.js"></script>
     <bindings>
         <binding source="#pic" event="onCaptured" target="#image" property="src" />
@@ -76,7 +79,7 @@
             targrtFormat='url("{0}")' />
         <binding source="#pic" event="onCaptured" target="#gal1" property="innerHTML"
             targrtFormat='+<img style="width:100px;height:100px;margin:2px" src="{0}" />' />
-        <binding source="#myTodos" event="onTodosChanged" target="#table" property="data" object />
+        <binding source="#myTodos" event="onTodosChanged" target=".table" property="data" object />
 
         <binding source="#sourceIn" event="keyup" target="#targeOut" property="innerHTML" />
 
@@ -99,10 +102,14 @@
 
 
 setTimeout(() => {
-    console.log('was here....')
-                document.querySelector('#range').remove();
-                document.querySelector('#selector1').remove();
-                document.querySelector('#myTodos').remove();
+                console.log('was here....')
+                debugger;
+                
+                var newTable = document.createElement('ph-dyntable');
+                newTable.classList.add('table');
+                newTable.setAttribute('data' , [])
+                document.querySelector('#target').append(newTable);
+                __initBindings();
             }, 5000);
 
         fetch('https://jsonplaceholder.typicode.com/users')
