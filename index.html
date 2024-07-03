@@ -14,7 +14,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/custom-elements@1.5.0/custom-elements.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@vaadin/vaadin@22.0.0-alpha1/vaadin.min.js"></script>
-<style>
+    <style>
         #rangeOut {
             color: rebeccapurple;
             background-color: greenyellow;
@@ -27,7 +27,9 @@
 </head>
 
 <body>
-    <h1>webcomponents</h1>
+    <h1>BindingJS a Micro Frontend Binding Framework</h1>
+    <em>Write NO/less JavaScript to Bind Microfront ends</em>
+    <hr>
     </div>
     <multi-item-selector id="selector1" keyProp="id" textProp="name" debug="true" selectedItems maxlength="5"
         direction="column" placeholder="Please Select item" data></multi-item-selector>
@@ -36,8 +38,8 @@
     <multi-item-selector id="selector2" keyProp="id" textProp="name" debug="true" selectedItems maxlength="3"
         direction="column" placeholder="Item Select kar le!!" data></multi-item-selector>
 
- vaddin
-        <vaadin-combo-box placeholder="Placeholder" id="vaddin"></vaadin-combo-box>
+    vaddin
+    <vaadin-combo-box placeholder="Placeholder" id="vaddin"></vaadin-combo-box>
     <br>
     <br>
     <br>
@@ -69,7 +71,7 @@
     <input type="text" id="sourceIn">
     <span id="targeOut"></span>
     <div id="target">
-Table to come here....
+        Table to come here....
     </div>
     <script type="module" src="./samples/wcforge.js"></script>
     <bindings>
@@ -96,21 +98,21 @@ Table to come here....
         <binding source="#selector1" event="change" target="#selector2" property="selecteditems" object />
         <binding source="#selector1" event="change" target="#vaddin" property="items" object />
 
-        
+
     </bindings>
     <script>
 
 
-setTimeout(() => {
-                console.log('was here....')
-                debugger;
-                
-                var newTable = document.createElement('ph-dyntable');
-                newTable.classList.add('table');
-                newTable.setAttribute('data' , [])
-                document.querySelector('#target').append(newTable);
-                __initBindings();
-            }, 5000);
+        setTimeout(() => {
+            console.log('was here....')
+            debugger;
+
+            var newTable = document.createElement('ph-dyntable');
+            newTable.classList.add('table');
+            newTable.setAttribute('data', [])
+            document.querySelector('#target').append(newTable);
+            __initBindings();
+        }, 5000);
 
         fetch('https://jsonplaceholder.typicode.com/users')
             .then((response) => response.json())
@@ -123,18 +125,26 @@ setTimeout(() => {
 
             });
 
+            fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
+            .then((response) => response.json())
+            .then((json) => {
+                document.querySelector('#posts').data = json
+               
+
+            });
 
 
-// document.querySelector('#pic').addEventListener('onCaptured' , (data) => {
-//   document.querySelector('#image').src = data.detail;
-//   document.querySelector('#myTodos').ownerimg = data.detail;
-//   const imgDiv = document.querySelector('#gal1');
-//   imgDiv.innerHTML =imgDiv.innerHTML + `<img style="width:100px;height:100px" src="${data.detail}" />`
-// })
 
-// document.querySelector('#myTodos').addEventListener('onTodosChanged' , data => {
-//   document.querySelector('#table').data = data.detail;
-// })
+        document.querySelector('#pic').addEventListener('onCaptured' , (data) => {
+          document.querySelector('#image').src = data.detail;
+          document.querySelector('#myTodos').ownerimg = data.detail;
+          const imgDiv = document.querySelector('#gal1');
+          imgDiv.innerHTML =imgDiv.innerHTML + `<img style="width:100px;height:100px" src="${data.detail}" />`
+        })
+
+        document.querySelector('#myTodos').addEventListener('onTodosChanged' , data => {
+          document.querySelector('#table').data = data.detail;
+        })
 
     </script>
 

@@ -2,6 +2,12 @@
  
  A micro front-end communication framework which allows communication between native or custom elements. These custom elements can be written in any front end programming frameworks which allows polyglot programming teams to use communicate between there micro-front ends	
 
+
+## Demo 
+Check the demo website [DEMO](https://bindingjs.netlify.app/) and let us know what you think.
+
+
+
 ## Goals
 
  - Define a minimal library which can will add DSL so we can ignore
@@ -11,9 +17,12 @@
 
 ## Roadmap 
 - A Better documentation
+- State management ?
 - Publish as NPM package 
-- Create Demo website 
 - Create Video of explanation
+
+
+
 
 
 ## Code Samples
