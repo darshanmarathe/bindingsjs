@@ -5,7 +5,8 @@
   "main": "bindings.js",
   "scripts": {
     "test": "npm test",
-    "start": "serv sample"
+    "startsam": "live-server samples",
+    "start": "live-server ."
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,6 @@
   },
   "homepage": "https://github.com/darshanmarathe/bindingsjs#readme",
   "devDependencies": {
-    "serv": "^0.2.4"
+    "live-server": "^1.2.0"
   }
 }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TypeScript Web Component</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.css"
+        crossorigin="anonymous" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/custom-elements@1.5.0/custom-elements.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@vaadin/vaadin@22.0.0-alpha1/vaadin.min.js"></script>
+    <style>
+        #rangeOut {
+            color: rebeccapurple;
+            background-color: greenyellow;
+            border: 1px solid black;
+
+            height: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BindingJS a Micro Frontend Binding Framework</h1>
+    <em>Write NO/less JavaScript to Bind Microfront ends</em>
+    <hr>
+    </div>
+    <multi-item-selector id="selector1" keyProp="id" textProp="name" debug="true" selectedItems maxlength="5"
+        direction="column" placeholder="Please Select item" data></multi-item-selector>
+
+
+    <multi-item-selector id="selector2" keyProp="id" textProp="name" debug="true" selectedItems maxlength="3"
+        direction="column" placeholder="Item Select kar le!!" data></multi-item-selector>
+
+    vaddin
+    <vaadin-combo-box placeholder="Placeholder" id="vaddin"></vaadin-combo-box>
+    <br>
+    <br>
+    <br>
+    <input type="range" name="" id="range" min="0" max="100" value="0">
+    <div style="background-repeat: round;" id="rangeOut"></div>
+    <ph-todoList id="myTodos" ownerimg=""></ph-todoList>
+    <h2>Table</h2>
+    <ph-dyntable class="table" debug="true" data></ph-dyntable>
+    <h2>Posts</h2>
+    <ph-dyntable id="posts" data debug="true"></ph-dyntable>
+
+    simple img Tag
+    <img id="image" src="" alt="" />
+
+    <ph-picuturetaker id="pic" debug="true"></ph-picuturetaker>
+    <br>
+    <br>
+    <h2>Image Gallery</h2>
+    <img-gallary id="gal1" debug="true">
+        <img src="https://images.pexels.com/photos/1643457/pexels-photo-1643457.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="">
+        <img src="https://thumbs.dreamstime.com/b/random-cat-love-cats-pet-catsslave-110819582.jpg" alt="">
+        <img src="data:image/jpeg;base64,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"
+            alt="">
+        <img src="https://i.pinimg.com/736x/33/32/6d/33326dcddbf15c56d631e374b62338dc.jpg" alt="">
+
+    </img-gallary>
+
+    <input type="text" id="sourceIn">
+    <span id="targeOut"></span>
+    <div id="target">
+        Table to come here....
+    </div>
+    <script type="module" src="./samples/wcforge.js"></script>
+    <bindings>
+        <binding source="#pic" event="onCaptured" target="#image" property="src" />
+        <binding source="#pic" event="onCaptured" target="#myTodos" property="ownerimg" />
+        <binding source="#pic" event="onCaptured" target="#rangeOut" property="style.backgroundImage"
+            targrtFormat='url("{0}")' />
+        <binding source="#pic" event="onCaptured" target="#gal1" property="innerHTML"
+            targrtFormat='+<img style="width:100px;height:100px;margin:2px" src="{0}" />' />
+        <binding source="#myTodos" event="onTodosChanged" target=".table" property="data" object />
+
+        <binding source="#sourceIn" event="keyup" target="#targeOut" property="innerHTML" />
+
+        <binding source="#gal1" event="imageSelected" target="#myTodos" property="ownerimg" />
+        <binding source="#gal1" event="imageSelected" target="#rangeOut" property="style.backgroundImage"
+            targrtFormat='url("{0}")' />
+
+        <binding source="#range" event="input" target="#rangeOut" pipe="console.log" />
+
+
+        <binding source="#range" event="input" target="#rangeOut" property="innerText" targrtFormat="{0}%" />
+        <binding source="#range" event="input" target="#rangeOut" property="style.width" targrtFormat="{0}%" />
+        <binding source="#range" event="input" target="#rangeOut" property="style.height" targrtFormat="{0}vh" />
+        <binding source="#selector1" event="change" target="#selector2" property="selecteditems" object />
+        <binding source="#selector1" event="change" target="#vaddin" property="items" object />
+
+
+    </bindings>
+    <script>
+
+
+        setTimeout(() => {
+            console.log('was here....')
+            debugger;
+
+            var newTable = document.createElement('ph-dyntable');
+            newTable.classList.add('table');
+            newTable.setAttribute('data', [])
+            document.querySelector('#target').append(newTable);
+            __initBindings();
+        }, 5000);
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then((response) => response.json())
+            .then((json) => {
+                document.querySelector('#selector1').data = json
+                document.querySelector('#selector1').selecteditems = ["1", "3", "5"];
+
+                document.querySelector('#selector2').data = json
+                document.querySelector('#selector2').selecteditems = [];
+
+            });
+
+            fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
+            .then((response) => response.json())
+            .then((json) => {
+                document.querySelector('#posts').data = json
+               
+
+            });
+
+
+
+        document.querySelector('#pic').addEventListener('onCaptured' , (data) => {
+          document.querySelector('#image').src = data.detail;
+          document.querySelector('#myTodos').ownerimg = data.detail;
+          const imgDiv = document.querySelector('#gal1');
+          imgDiv.innerHTML =imgDiv.innerHTML + `<img style="width:100px;height:100px" src="${data.detail}" />`
+        })
+
+        document.querySelector('#myTodos').addEventListener('onTodosChanged' , data => {
+          document.querySelector('#table').data = data.detail;
+        })
+
+    </script>
+
+    <script src="./bindings.js"></script>
+</body>
+
+</html>

@@ -62,3 +62,7 @@ Check the demo website [DEMO](https://bindingjs.netlify.app/) and let us know wh
     </bindings>
 
  
+## thanks 
+
+Thanks Mamba UI 
+https://mambaui.com/components/sidebar

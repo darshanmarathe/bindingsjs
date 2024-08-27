@@ -1,4 +1,5 @@
 var __initBindings = () => {
+  debugger;
     const bindings = document.querySelectorAll("bindings  binding");
    
     if (!String.prototype.format) {
@@ -70,7 +71,7 @@ var __initBindings = () => {
       const property = binding.getAttribute("property");
       const sourceproperty = binding.getAttribute("sourceproperty");
       const pipe = binding.getAttribute("pipe");
-      const targrtFormat = binding.getAttribute("targrtFormat") || "{0}";
+      const targetFormat = binding.getAttribute("targetFormat") || "{0}";
       const isObject = binding.hasAttribute("object");
   
       const elemToBind = () =>  document.querySelectorAll(source);
@@ -105,7 +106,7 @@ var __initBindings = () => {
                 property,
                 e.target,
                 telem,
-                targrtFormat,
+                targetFormat,
                 isObject,
                 sourceproperty
               );
@@ -114,7 +115,7 @@ var __initBindings = () => {
                 property,
                 e.detail || e.target.value || e.target,
                 telem,
-                targrtFormat,
+                targetFormat,
                 isObject,
                 sourceproperty
               );
