@@ -37,7 +37,7 @@
             </header>
             <main>
                 <div class="container mx-auto space-y-16">
-                    <section class="grid gap-1  lg:grid-cols-2 xl:grid-cols-4">
+                    <section class="grid gap-1  lg:grid-cols-2 xl:grid-cols-2">
                         <aside class="w-full sm:w-60 bg-gray-900 text-gray-100 text-center">
                             <nav class="space-y-8 text-sm">
                                 <div class="space-y-2">
@@ -46,7 +46,7 @@
                                     <div class="flex flex-col space-y-1 menu">
                                         <a rel="noopener noreferrer"
                                             href="./examples/Installation.html">Installation</a>
-                                        <a rel="noopener noreferrer" href="#">Plugins</a>
+                                        <a href="./examples/MF1.html">Microfrontend To Image</a>
                                         <a rel="noopener noreferrer" href="#">Migrations</a>
                                         <a rel="noopener noreferrer" href="#">Appearance</a>
                                         <a rel="noopener noreferrer" href="#">Mamba UI</a>
@@ -83,9 +83,11 @@
                             </nav>
                         </aside>
 
-                        <div class="text-left">
-                            <partial src="./examples/intro.html" id="view" onload="__initBindings"
-                                style="border: 1px solid red;">
+                        <div class="w-full md:w-8/10 bg-white p-4">
+                            <partial src="./examples/intro.html" id="view" onload="__initBindings" >   
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                      Click me
+                                    </button> </partial>
                 </div>
                 </section>
 
