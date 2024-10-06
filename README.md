@@ -61,8 +61,3 @@ Check the demo website [DEMO](https://bindingjs.netlify.app/) and let us know wh
 	    <binding  source="#selector1"  event="change"  target="#selector2"  property="selecteditems"  object />
     </bindings>
 
- 
-## thanks 
-
-Thanks Mamba UI 
-https://mambaui.com/components/sidebar

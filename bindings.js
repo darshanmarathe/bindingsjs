@@ -1,5 +1,5 @@
 var __initBindings = () => {
-  debugger;
+
     const bindings = document.querySelectorAll("bindings  binding");
    
     if (!String.prototype.format) {
