@@ -1,12 +1,18 @@
-
-<h1>Intro</h1>
-
+<h1>Introduction</h1>
+<style>
+  .box{
+    height: 100px;
+    width: 200px;
+    border: 1px solid black;
+    background-color: rgb(250, 0, 0);
+  }
+</style>
 
 
 <div class="col-span-full sm:col-span-3 text-left">
   <label for="sourceIn" class="text-sm">First name</label>
   <input id="sourceIn" type="text" placeholder="First name" style="color: black;"
-  class="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black-50 focus:dark:ring-violet-600 dark:border-gray-300">
+    class="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-black-50 focus:dark:ring-violet-600 dark:border-gray-300">
 </div>
 
 
@@ -16,9 +22,6 @@ Your First Name is :
 <span id="targeOut">
 </span>
 
-<bindings>
-  <binding source="#sourceIn" event="keyup" target="#targeOut" property="innerHTML" />
-</bindings>
 
 <pre class="language-html">
   <code class="language-html">
@@ -27,3 +30,29 @@ Your First Name is :
  &nbsp;&lt;/bindings&gt;
 </code>
 </pre>
+
+<div>
+  Red :
+  <input type="number" name="red" id="red" min="0" max="255" value="0"><br>
+  Green :
+  </input><input type="number" name="green" id="green" min="0" max="255" value="0"><br>
+  Blue :
+  </input><input type="number" name="blue" id="blue" min="0" max="255" value="255"><br>
+
+  <div class="box">
+
+  </div>
+</div>
+
+<bindings>
+  <binding source="#sourceIn" event="keyup" target="#targeOut" property="innerHTML" />
+  <binding  source="#red"  event="change"  target=".box"  property="style.backgroundColor"
+    
+  targetFormat='rgb("0 ,0 ,{0}")' />
+  <binding  source="#green"  event="change"  target=".box"  property="style.backgroundColor"
+    
+  targetFormat='rgb("0 ,{0} ,0")' />
+  <binding  source="#blue"  event="change"  target=".box"  property="style.backgroundColor"
+    
+  targetFormat='rgb("{0} ,0 ,0")' />
+</bindings>
