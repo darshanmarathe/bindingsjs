@@ -1,31 +1,19 @@
 <h1>Installation</h1>
+<em><strong>Note :</strong> we have not published bindingjs to npm yet, so you will have to install it locally.</em>
+<hr>
+
+<h2>With NPM</h2>
+<pre class="language-bash">
+    <code class="language-bash">
+npm install bindingjs  
+    </code>
+</pre>
 
 
 
-
-<input type="text" id="sourceIn" class="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300">  
-
-
-
-<span id="targeOut">
-hello world
-</span>
-
-<bindings>
-
-    <bindings>
-        <binding source="#sourceIn" event="keyup"  target="#targeOut" property="innerHTML" />
-
-    </bindings>
-</bindings>
-
-<!-- <pre><code class="language-html">
-    <bindings>
-
-        <binding>
-            <binding source="#sourceIn" event="keyup" target="#targeOut" property="innerHTML" />
-    
-        </binding>
-    </bindings>
-
-</code></pre> -->
+<h2>With Script Tag via CDN</h2>
+<pre class="language-html">
+    <code class="language html">
+&lt;script src="https://cdn.jsdelivr.net/npm/bindingjs/dist/binding.min.js"&gt;&lt;/script&gt;
+</code>
+</pre>
