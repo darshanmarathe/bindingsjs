@@ -1,6 +1,6 @@
 <h1>Introduction</h1>
 <style>
-  .box{
+  .box {
     height: 100px;
     width: 200px;
     border: 1px solid black;
@@ -46,13 +46,21 @@ Your First Name is :
 
 <bindings>
   <binding source="#sourceIn" event="keyup" target="#targeOut" property="innerHTML" />
-  <binding  source="#red"  event="change"  target=".box"  property="style.backgroundColor"
-    
-  targetFormat='rgb("0 ,0 ,{0}")' />
-  <binding  source="#green"  event="change"  target=".box"  property="style.backgroundColor"
-    
-  targetFormat='rgb("0 ,{0} ,0")' />
-  <binding  source="#blue"  event="change"  target=".box"  property="style.backgroundColor"
-    
-  targetFormat='rgb("{0} ,0 ,0")' />
+  <binding source="#red" event="change" target=".box" property="style.backgroundColor" targetFormat='rgb(0 ,0 ,{0})' />
+  <binding source="#green" event="change" target=".box" property="style.backgroundColor"
+    targetFormat='rgb(0 ,{0} ,0)' />
+  <binding source="#blue" event="change" target=".box" property="style.backgroundColor" targetFormat='rgb({0} ,0 ,0)' />
 </bindings>
+
+
+<pre class="language-html">
+  <code class="language html">
+    
+&lt;bindings&gt;
+&lt;binding source="#red" event="change" target=".box" property="style.backgroundColor" targetFormat='rgb(0 ,0 ,{0})' /&gt;
+ &lt;binding source="#green" event="change" target=".box" property="style.backgroundColor"
+ targetFormat='rgb(0 ,{0} ,0)' /&gt;
+ &lt;binding source="#blue" event="change" target=".box" property="style.backgroundColor"
+ targetFormat='rgb({0} ,0 ,0)' /&gt;
+&lt;/bindings&gt;
+</code></pre>

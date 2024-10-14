@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanitizer</title>
+    <style>
+        #out{
+            width:100%;
+            min-height: 300px;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <textarea rows="10" cols="100" name="html" id="html">
+
+    </textarea>
+    <br>
+
+    <button onclick="convert()">Convert</button>
+
+    <span id="out">
+
+    </span>
+
+
+
+    <script>
+
+function sanitizeHTML(text) {
+    var element = document.createElement('div');
+    element.innerText = text;
+    return element.innerHTML;
+}
+
+        function convert() {
+            debugger;
+            const _html = document.getElementById('html').value || '';
+
+
+            document.getElementById('out').textContent = sanitizeHTML(_html);
+        }
+    </script>
+</body>
+
+</html>
