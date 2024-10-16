@@ -1,13 +1,16 @@
 var __initBindings = () => {
 
     const bindings = document.querySelectorAll("bindings  binding");
+
+    const model = {};
    
     if (!String.prototype.format) {
-      String.prototype.format = function () {
-        var args = arguments;
-        return this.replace(/{(\d+)}/g, function (match, number) {
-          return typeof args[number] != "undefined" ? args[number] : match;
-        });
+      String.prototype.format = function (_model) {
+       
+        //return this.replace(/{(\d+)}/g, function (match, number) {
+        //  return typeof args[number] != "undefined" ? args[number] : match;
+        //});
+        return this.replace(/{(\w+)}/g, (match, key) => _model[key]);
       };
     }
   
@@ -38,7 +41,8 @@ var __initBindings = () => {
       rootObject,
       targetFormat,
       isObject,
-      sourceproperty
+      sourceproperty,
+      xModel
     ) {
       let props = str.split(".");
       let currObj = rootObject;
@@ -61,7 +65,13 @@ var __initBindings = () => {
       if (targetFormat.startsWith("+")) {
         targetFormat = targetFormat.substring(1);
         currObj[lastProp] = currObj[lastProp] + targetFormat.format(value);
-      } else currObj[lastProp] = targetFormat.format(value);
+      } else {
+        if (xModel) {
+          model[xModel] = value;
+        }
+        currObj[lastProp] = (targetFormat == "") ? value : targetFormat.format(model);
+       
+      }
     }
   
     bindings.forEach((binding) => {
@@ -71,8 +81,9 @@ var __initBindings = () => {
       const property = binding.getAttribute("property");
       const sourceproperty = binding.getAttribute("sourceproperty");
       const pipe = binding.getAttribute("pipe");
-      const targetFormat = binding.getAttribute("targetFormat") || "{0}";
+      const targetFormat = binding.getAttribute("targetFormat") || "";
       const isObject = binding.hasAttribute("object");
+      const xModel = binding.getAttribute("x-model");
   
       const elemToBind = () =>  document.querySelectorAll(source);
       const targetElement = () => document.querySelectorAll(target);
@@ -87,6 +98,12 @@ var __initBindings = () => {
           );
           return;
         }
+      }
+
+
+      // set default value for x-model
+      if (xModel) {
+        model[xModel] = elemToBind()[0].detail || elemToBind()[0].value;
       }
   
       const Action = function (e) {
@@ -108,7 +125,8 @@ var __initBindings = () => {
                 telem,
                 targetFormat,
                 isObject,
-                sourceproperty
+                sourceproperty,
+                xModel
               );
             } else {
               setObject(
@@ -117,7 +135,8 @@ var __initBindings = () => {
                 telem,
                 targetFormat,
                 isObject,
-                sourceproperty
+                sourceproperty,
+                xModel
               );
             }
           });

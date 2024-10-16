@@ -15,10 +15,10 @@
     </pre>
 </code>
 <bindings>
-    <binding source="#input" event="change" target="#output" property="style.height" targetFormat="{0}%"/>
-    <binding source="#input" event="change" target="#height" property="innerHTML" targetFormat="{0}%"/>
-    <binding source="#input" event="change" target="#output" property="style.width" targetFormat="{0}%"/>
-    <binding source="#input" event="change" target="#width" property="innerHTML" targetFormat="{0}%"/>
+    <binding source="#input" x-model="value" event="change" target="#output" property="style.height" targetFormat="{value}%"/>
+    <binding source="#input" x-model="value"  event="change" target="#height" property="innerHTML" targetFormat="{value}%"/>
+    <binding source="#input" x-model="value" event="change" target="#output" property="style.width" targetFormat="{value}%"/>
+    <binding source="#input" x-model="value" event="change" target="#width" property="innerHTML" targetFormat="{value}%"/>
 </bindings>
 
 <style>

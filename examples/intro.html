@@ -6,6 +6,9 @@
     border: 1px solid black;
     background-color: rgb(250, 0, 0);
   }
+  #targeOut{
+    color: red;
+  }
 </style>
 
 
@@ -45,11 +48,17 @@ Your First Name is :
 </div>
 
 <bindings>
-  <binding source="#sourceIn" event="keyup" target="#targeOut" property="innerHTML" />
-  <binding source="#red" event="change" target=".box" property="style.backgroundColor" targetFormat='rgb(0 ,0 ,{0})' />
-  <binding source="#green" event="change" target=".box" property="style.backgroundColor"
-    targetFormat='rgb(0 ,{0} ,0)' />
-  <binding source="#blue" event="change" target=".box" property="style.backgroundColor" targetFormat='rgb({0} ,0 ,0)' />
+  <binding source="#sourceIn" x-model="FirstName" event="keyup" target="#targeOut" property="innerHTML" />
+  <binding source="#red"  x-model="red" event="change" target=".box" property="style.backgroundColor" targetFormat='rgb({red} ,{green} ,{blue})' />
+  <binding source="#green"  x-model="green" event="change" target=".box" property="style.backgroundColor"
+    targetFormat='rgb({red} ,{green} ,{blue})' />
+  <binding source="#blue" x-model="blue" event="change" target=".box" property="style.backgroundColor"
+    targetFormat='rgb({red} ,{green} ,{blue})' />
+    <binding source="#red"  x-model="red" event="change" target=".box" property="innerText" targetFormat='rgb({red} ,{green} ,{blue}) => {FirstName}' />
+    <binding source="#green"  x-model="green" event="change" target=".box" property="innerText"
+      targetFormat='rgb({red} ,{green} ,{blue}) => {FirstName}' />
+    <binding source="#blue" x-model="blue" event="change" target=".box" property="innerText"
+      targetFormat='rgb({red} ,{green} ,{blue}) => {FirstName}' />
 </bindings>
 
 
