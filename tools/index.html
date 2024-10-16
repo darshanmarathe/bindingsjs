@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanitizer</title>
     <style>
-        #out{
-            width:100%;
-            min-height: 300px;
+        #out {
+            width: 100%;
+            min-height: 100px;
             border: 1px solid green;
         }
     </style>
@@ -22,20 +22,22 @@
     <br>
 
     <button onclick="convert()">Convert</button>
+    <br>
 
-    <span id="out">
+    <div id="out">
 
-    </span>
-
+    </div>
+    <br>
+    <button onclick="copy()">Copy</button>
 
 
     <script>
 
-function sanitizeHTML(text) {
-    var element = document.createElement('div');
-    element.innerText = text;
-    return element.innerHTML;
-}
+        function sanitizeHTML(text) {
+            var element = document.createElement('div');
+            element.innerText = text;
+            return element.innerHTML;
+        }
 
         function convert() {
             debugger;
@@ -43,6 +45,11 @@ function sanitizeHTML(text) {
 
 
             document.getElementById('out').textContent = sanitizeHTML(_html);
+        }
+
+        function copy() {
+            const text = document.getElementById('out').textContent;
+            navigator.clipboard.writeText(text);
         }
     </script>
 </body>

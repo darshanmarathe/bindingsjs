@@ -1,14 +1,24 @@
-<input type="range" name="input" id="input" min="0" max="100" value="50">
+<input type="range" name="input" id="input" min="0" max="100" value="50"> #range
+
+<div id="value"> 
+   height <span id="height">50%</span>
+   width <span id="width">50%</span>
+</div> #height #width
 
 <div id="output">
+    slide range to change my size. #output
+</div> 
 
-    slide range to change my size.
-</div>
-
+<code class="language-html">
+    <pre class="language-html">
+        <br> &lt;bindings&gt;<br> &lt;binding source="#input" event="change" target="#output" property="style.height" targetFormat="{0}%"/&gt;<br> &lt;binding source="#input" event="change" target="#height" property="innerHTML" targetFormat="{0}%"/&gt;<br> &lt;binding source="#input" event="change" target="#output" property="style.width" targetFormat="{0}%"/&gt;<br> &lt;binding source="#input" event="change" target="#width" property="innerHTML" targetFormat="{0}%"/&gt;<br>&lt;/bindings&gt;
+    </pre>
+</code>
 <bindings>
     <binding source="#input" event="change" target="#output" property="style.height" targetFormat="{0}%"/>
-
+    <binding source="#input" event="change" target="#height" property="innerHTML" targetFormat="{0}%"/>
     <binding source="#input" event="change" target="#output" property="style.width" targetFormat="{0}%"/>
+    <binding source="#input" event="change" target="#width" property="innerHTML" targetFormat="{0}%"/>
 </bindings>
 
 <style>
