@@ -6,10 +6,6 @@ var __initBindings = () => {
    
     if (!String.prototype.format) {
       String.prototype.format = function (_model) {
-       
-        //return this.replace(/{(\d+)}/g, function (match, number) {
-        //  return typeof args[number] != "undefined" ? args[number] : match;
-        //});
         return this.replace(/{(\w+)}/g, (match, key) => _model[key]);
       };
     }
