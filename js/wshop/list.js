@@ -22,7 +22,9 @@ export default class List extends Component {
       <p class="product-price">${t.brand}</p>
       <p class="product-price">$${t.price}</p>
       <div class="quantity-control">
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" @click=${() => {
+                        this.fireEvent('add-to-cart', 'watch', t)
+                    }}>Add to Cart</button>
       </div>
     </div>
    <img src="${t.image_link}" alt="${t.name}" @click=${() => {

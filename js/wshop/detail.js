@@ -45,7 +45,9 @@ if (!this.state.watch) {
       <h3 class="product-brand">${this.state.watch.brand}</h3>
       <p class="product-description">This is a brief description of the product. It highlights the key features and benefits of the product.</p>
       <p class="product-price">$${this.state.watch.price}</p>
-      <button class="add-to-cart">Add to Cart</button>
+      <button class="add-to-cart" @click=${() => {
+                        this.fireEvent('add-to-cart', 'watch', this.state.watch)
+                    }}>Add to Cart</button>
     </div>
   </div>
             `

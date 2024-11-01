@@ -3,9 +3,19 @@
 
 
 <div class="container"></div>
+
+<div class="row"></div>
+    <div class="col-md-12 p-3 border">
+        
+            <pre class="language-html">
+&lt;bindings&gt;<br>    &lt;binding source="#list" x-model="watch" event="watch-selected" target="#detail"<br>    property="watch" object  &gt;&lt;/binding&gt;<br>    &lt;binding source="#list" event="add-to-cart" target="#cart"<br>    property="newWatch" object  &gt;&lt;/binding&gt;<br>    &lt;binding source="#detail" event="add-to-cart" target="#cart"<br>    property="newWatch" object  &gt;&lt;/binding&gt;<br>&lt;/bindings&gt;<br>
+            </pre>
+      </div>
+    </div>
+
 <div class="row">
     <div class="col-md-12 p-3 border">
-        Cart to come here...
+      <cf-cart id="cart">
       </div>
     </div>
     <div class="row">
@@ -27,4 +37,8 @@
 <bindings>
     <binding source="#list" x-model="watch" event="watch-selected" target="#detail"
     property="watch" object  ></binding>
+    <binding source="#list" event="add-to-cart" target="#cart"
+    property="newWatch" object  ></binding>
+    <binding source="#detail" event="add-to-cart" target="#cart"
+    property="newWatch" object  ></binding>
 </bindings>
