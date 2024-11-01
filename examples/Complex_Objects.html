@@ -44,4 +44,15 @@
     property="watch" object  ></binding>
     <binding source="#detail" event="add-to-cart" target="#cart"
     property="newWatch" object  ></binding>
+    <binding source="#cart" event="checkout" target="#cart"
+    pipe="onCheckout" object  ></binding>
 </bindings>
+
+
+<script>
+    function onCheckout(e){
+       console.clear();
+        console.dir(e.detail);
+        alert('check your cart in console');
+    }
+</script>

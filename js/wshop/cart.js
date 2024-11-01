@@ -45,7 +45,9 @@ export default class Cart extends Component {
     <div class="total">
       <p>Total: $${+this.state.total.toFixed(2)}</p>
     </div>
-    <button class="checkout-btn" @click=${() => alert('opps you cant buy this watches yet')}>Checkout</button>
+    <button class="checkout-btn" @click=${(e) => {
+        this.fireEvent('checkout' , 'cart' ,{cart :   this.state})
+    }}>Checkout</button>
   </div>
             `
     }
