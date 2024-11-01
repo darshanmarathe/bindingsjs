@@ -33,9 +33,11 @@ export default class Cart extends Component {
     ${this.state.items.map((i) => {
         return html`
         <div class="cart-item">
+<img src="${i.image_link}" alt="${i.name}" class="product-image" />
       <p class="item-name">${i.name}</p>
       <p class="item-name">${i.brand}</p>
       <p class="item-price">$${i.price}</p>
+
     </div>
         
         `
@@ -100,6 +102,16 @@ h2 {
 
 .checkout-btn:hover {
   background-color: #45a049;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  max-height:80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-left: 15px; /* Adjusted margin for spacing */
+  margin:3px;
 }
 
         </style>
