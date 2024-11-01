@@ -1,1 +1,30 @@
-Complex_Objects.html
+<h1>Complex Objects</h1>
+<hr>
+
+
+<div class="container"></div>
+<div class="row">
+    <div class="col-md-12 p-3 border">
+        Cart to come here...
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="p-3 border bg-light">
+            <cf-watches id="list" url="https://nodeapi.collabmantra.com/rest/watches"></cf-watches>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="p-3 border bg-light">
+            <cf-detail id="detail" url="https://nodeapi.collabmantra.com/rest/watches/001"></cf-detail>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<bindings>
+    <binding source="#list" x-model="watch" event="watch-selected" target="#detail"
+    property="watch" object  ></binding>
+</bindings>
