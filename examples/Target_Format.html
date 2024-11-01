@@ -1,1 +1,38 @@
-Target_Format.html
+<h1>Target format</h1>
+<hr>
+<form action="">
+    #firstName
+    <input type="text" class="form-control"  id="firstName" />
+    <br>#middleName
+    <input type="text" class="form-control" id="middleName" />
+    <br>#lastName
+    <input type="text" class="form-control" id="lastName" />
+    <br>
+</form>
+
+My Name is <span id="fullName">
+
+</span> #fullname
+
+<bindings>
+    <binding source="#firstName" x-model="FirstName" event="input" target="#fullName"
+             property="innerHTML" targetformat="{FirstName} {MiddleName} {LastName}" ></binding>
+
+    <binding source="#middleName" x-model="MiddleName" event="input" target="#fullName"
+             property="innerHTML" targetformat="{FirstName} {MiddleName} {LastName}" ></binding>
+
+    <binding source="#lastName" x-model="LastName" event="input" target="#fullName"
+             property="innerHTML" targetformat="{FirstName} {MiddleName} {LastName}" ></binding>
+</bindings>
+
+<code class="language-html">
+    <pre class="language-html">
+        <br>&lt;bindings&gt;<br> &lt;binding source="#firstName" x-model="FirstName" event="input" target="#fullName"<br> property="innerHTML" targetformat="{FirstName} {MiddleName} {LastName}" &gt;&lt;/binding&gt;<br><br> &lt;binding source="#middleName" x-model="MiddleName" event="input" target="#fullName"<br> property="innerHTML" targetformat="{FirstName} {MiddleName} {LastName}" &gt;&lt;/binding&gt;<br><br> &lt;binding source="#lastName" x-model="LastName" event="input" target="#fullName"<br> property="innerHTML" targetformat="{FirstName} {MiddleName} {LastName}" &gt;&lt;/binding&gt;<br>&lt;/bindings&gt;
+    </pre>
+</code>
+
+<style>
+    .form-control{
+        width: 80% !important;
+    }
+</style>

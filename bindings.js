@@ -92,7 +92,8 @@ var __initBindings = () => {
 
   if (!String.prototype.format) {
     String.prototype.format = function (_model) {
-      return this.replace(/{(\w+)}/g, (match, key) => _model[key]);
+      console.log(_model)
+      return this.replace(/{(\w+)}/g, (match, key) => _model[key] || "");
     };
   }
 
@@ -214,7 +215,7 @@ var __initBindings = () => {
         } else {
           setObject(
             property,
-            e.detail || e.target.value || e.target,
+            e.detail || e.target.value, // || e.target,
             telem,
             targetFormat,
             isObject,
