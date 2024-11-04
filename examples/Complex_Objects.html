@@ -16,7 +16,7 @@
 
 <div class="row">
     <div class="col-md-12 p-3 border">
-      <cf-cart id="cart">
+      <cf-cart2 id="cart2"></cf-cart2>
       </div>
     </div>
     <div class="row">
@@ -38,14 +38,17 @@
 <bindings>
     <binding source="#list" x-model="watch" event="watch-selected" target="#detail"
     property="watch" object  ></binding>
-    <binding source="#list" event="add-to-cart" target="#cart"
-    property="newWatch" object  ></binding>
+
     <binding source="#list" event="add-to-cart" target="#detail"
     property="watch" object  ></binding>
-    <binding source="#detail" event="add-to-cart" target="#cart"
-    property="newWatch" object  ></binding>
     <binding source="#cart" event="checkout" target="#cart"
     pipe="onCheckout" object  ></binding>
+
+    <binding source="#list" event="add-to-cart" target="#cart2"
+    property="currentItem" object  ></binding>
+    <binding source="#detail" event="add-to-cart" target="#cart2"
+    property="currentItem" object  ></binding>
+
 </bindings>
 
 
